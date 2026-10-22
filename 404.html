@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found</title>
+<script>
+  // GitHub Pages paths are case-sensitive, so /results/ would 404 instead of reaching /Results/.
+  // This page is served for any path no site matches; if the first folder matches a site
+  // apart from capitalisation, send the visitor to the correctly capitalised address.
+  (function () {
+    var sites = ['Results', 'Election_Night_Results', '2611-EVTurnout', '2608-OfficialResults',
+                 '2608-EVTurnout', '2605-OfficialResults', 'ballotboxdelivery', 'NateWebApps'];
+    var parts = location.pathname.split('/');
+    var first = decodeURIComponent(parts[1] || '').toLowerCase();
+    for (var i = 0; i < sites.length; i++) {
+      if (sites[i].toLowerCase() === first && sites[i] !== parts[1]) {
+        parts[1] = sites[i];
+        if (parts.length === 2) parts.push('');
+        location.replace(parts.join('/') + location.search + location.hash);
+        return;
+      }
+    }
+  })();
+</script>
+<style>
+  body { font: 18px/1.5 system-ui, sans-serif; margin: 0; padding: 48px 16px; background: #fff; color: #1a1a1a; text-align: center; }
+  a { color: #0b4f9c; }
+</style>
+</head>
+<body>
+  <h1>Page not found</h1>
+  <p>For election results, go to <a href="/Results/">govotehamiltontn.gov/Results</a>.</p>
+</body>
+</html>
