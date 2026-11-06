@@ -9,7 +9,7 @@
   // This page is served for any path no site matches; if the first folder matches a site
   // apart from capitalisation, send the visitor to the correctly capitalised address.
   (function () {
-    var sites = ['Results', 'Election_Night_Results', '2611-EVTurnout', '2608-OfficialResults',
+    var sites = ['Results', 'SecureTransfer', 'Election_Night_Results', '2611-EVTurnout', '2608-OfficialResults',
                  '2608-EVTurnout', '2605-OfficialResults', 'ballotboxdelivery', 'NateWebApps'];
     var parts = location.pathname.split('/');
     var first = decodeURIComponent(parts[1] || '').toLowerCase();
